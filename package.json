@@ -1,0 +1,30 @@
+{
+  "name": "junkstarter",
+  "version": "0.1.1",
+  "private": true,
+  "dependencies": {
+    "react": "16.3.1",
+    "react-native": "~0.55.2"
+  },
+  "devDependencies": {
+    "@target-corp/react-native-svg-parser": "^1.0.5",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "base-64": "^0.1.0",
+    "core-decorators": "^0.20.0",
+    "jest": "^23.0.1",
+    "jest-react-native": "^18.0.0",
+    "react-native-auth0": "^1.2.2",
+    "react-native-svg": "^6.3.1",
+    "react-navigation": "^2.5.1",
+    "react-test-renderer": "16.3.1"
+  },
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
