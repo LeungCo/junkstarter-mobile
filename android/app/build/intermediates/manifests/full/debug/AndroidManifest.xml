@@ -51,7 +51,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="junkstarter.au.auth0.com"
+                    android:host="junk-starter.au.auth0.com"
                     android:pathPrefix="/android/com.junkstarter/callback"
                     android:scheme="com.junkstarter" />
             </intent-filter>

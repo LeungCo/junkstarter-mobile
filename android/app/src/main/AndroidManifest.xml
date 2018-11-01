@@ -34,12 +34,11 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="junkstarter.au.auth0.com"
+                    android:host="junk-starter.au.auth0.com"
                     android:pathPrefix="/android/${applicationId}/callback"
                     android:scheme="${applicationId}" />
             </intent-filter>

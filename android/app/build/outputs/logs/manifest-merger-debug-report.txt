@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:1:1-50:12
+ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:1:1-49:12
 	package
 		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:2:5-30
 		INJECTED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml
@@ -41,7 +41,7 @@ ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidMan
 	android:name
 		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:16:9-53
 application
-ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:19:5-48:19
+ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:19:5-47:19
 MERGED from [junkstarter:react-native-auth0:unspecified] /Users/martin/code/junkstarter-mobile/android/app/build/intermediates/exploded-aar/junkstarter/react-native-auth0/unspecified/AndroidManifest.xml:11:5-12:19
 MERGED from [com.android.support:customtabs:23.0.1] /Users/martin/code/junkstarter-mobile/android/app/build/intermediates/exploded-aar/com.android.support/customtabs/23.0.1/AndroidManifest.xml:22:5-20
 MERGED from [com.facebook.react:react-native:0.55.4] /Users/martin/code/junkstarter-mobile/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.55.4/AndroidManifest.xml:13:5-20
@@ -60,7 +60,7 @@ MERGED from [org.webkit:android-jsc:r174650] /Users/martin/code/junkstarter-mobi
 	android:name
 		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:20:9-40
 activity#com.junkstarter.MainActivity
-ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:25:9-46:20
+ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:25:9-45:20
 	android:label
 		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:29:13-45
 	android:launchMode
@@ -82,33 +82,33 @@ ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidMan
 	android:name
 		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:33:27-74
 intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
-ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:35:13-45:29
+ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:35:13-44:29
 action#android.intent.action.VIEW
 ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:36:17-69
 	android:name
 		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:36:25-66
 category#android.intent.category.DEFAULT
-ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:38:17-76
+ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:37:17-76
 	android:name
-		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:38:27-73
+		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:37:27-73
 category#android.intent.category.BROWSABLE
-ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:39:17-78
+ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:38:17-78
 	android:name
-		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:39:27-75
+		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:38:27-75
 data
-ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:41:17-44:57
+ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:40:17-43:57
 	android:host
-		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:42:21-60
+		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:41:21-61
 	android:scheme
-		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:44:21-54
+		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:43:21-54
 		INJECTED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml
 	android:pathPrefix
-		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:43:21-76
+		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:42:21-76
 		INJECTED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:47:9-86
+ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:46:9-86
 	android:name
-		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:47:19-83
+		ADDED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:46:19-83
 uses-sdk
 INJECTED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [junkstarter:react-native-auth0:unspecified] /Users/martin/code/junkstarter-mobile/android/app/build/intermediates/exploded-aar/junkstarter/react-native-auth0/unspecified/AndroidManifest.xml:7:5-9:41
@@ -132,8 +132,8 @@ MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/martin/code/junkstarte
 		INJECTED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml
 android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:1:1-50:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:1:1-49:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 android:uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:1:1-50:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:1:1-49:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:1:1-50:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+IMPLIED from /Users/martin/code/junkstarter-mobile/android/app/src/main/AndroidManifest.xml:1:1-49:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

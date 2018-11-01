@@ -44,7 +44,7 @@ class AuthScreen extends React.Component {
   static navigationOptions = {
     title: "Junk Starter",
     headerStyle: {
-      backgroundColor: "hsla(353, 82%, 45%, 1)"
+      backgroundColor: "#424242"
     },
     headerTintColor: "#FFF",
     headerTitleStyle: {
@@ -53,22 +53,19 @@ class AuthScreen extends React.Component {
   };
 
   state = {
-    loading: false
+    loading: true
   };
 
   componentWillMount() {
     this.attemptAuth();
   }
 
-  async attemptAuth() {
+  attemptAuth() {
     const {
       navigation: { navigate }
     } = this.props;
-    this.setState({
-      loading: true
-    });
 
-    await AsyncStorage.getItem("authCredentials").then(credentials => {
+    AsyncStorage.getItem("authCredentials").then(credentials => {
       const parsedCredentials = JSON.parse(credentials);
       const currentTimestamp = +(new Date().getTime() / 1000).toFixed(0);
       let hasExpired = false;
@@ -78,31 +75,30 @@ class AuthScreen extends React.Component {
           (parsedCredentials.expireTimestamp || 0) < currentTimestamp;
       }
 
-      // if (!parsedCredentials || hasExpired) {
-      //   console.log("@@@@@@@@@@", parsedCredentials, hasExpired);
-      //   auth0.webAuth
-      //     .authorize({
-      //       scope: "openid profile email",
-      //       audience: "https://junk-starter.au.auth0.com/userinfo"
-      //     })
-      //     .then(async credentials => {
-      //       if (credentials) {
-      //         credentials.expireTimestamp =
-      //           currentTimestamp + credentials.expiresIn;
+      if (!parsedCredentials || hasExpired) {
+        auth0.webAuth
+          .authorize({
+            scope: "openid profile email",
+            audience: "https://junk-starter.au.auth0.com/userinfo"
+          })
+          .then(credentials => {
+            if (credentials) {
+              credentials.expireTimestamp =
+                currentTimestamp + credentials.expiresIn;
 
-      //         await AsyncStorage.setItem(
-      //           "authCredentials",
-      //           JSON.stringify(credentials)
-      //         );
-      //         navigate("Home");
-      //         this.resetLoading();
-      //       }
-      //     })
-      //     .catch(error => console.log(error));
-      // } else if (parsedCredentials && !hasExpired) {
-      navigate("Home");
-      this.resetLoading();
-      // }
+              AsyncStorage.setItem(
+                "authCredentials",
+                JSON.stringify(credentials)
+              );
+              navigate("Home");
+              this.resetLoading();
+            }
+          })
+          .catch(error => console.log(error));
+      } else if (parsedCredentials && !hasExpired) {
+        navigate("Home");
+        this.resetLoading();
+      }
     });
   }
 
