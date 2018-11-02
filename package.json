@@ -3,12 +3,16 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
+    "config": "^2.0.1",
+    "get": "^1.4.0",
+    "prefix": "^1.0.0",
     "react": "16.3.1",
     "react-native": "~0.55.2"
   },
   "devDependencies": {
     "@target-corp/react-native-svg-parser": "^1.0.5",
     "axios": "^0.18.0",
+    "babel-plugin-module-resolver": "^3.1.1",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "base-64": "^0.1.0",
     "core-decorators": "^0.20.0",

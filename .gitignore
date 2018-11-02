@@ -19,3 +19,4 @@ yarn-error.log*
 docs/_book/
 android/.idea/
 android/.gradle/
+android/app/build/

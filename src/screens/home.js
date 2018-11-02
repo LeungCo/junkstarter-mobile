@@ -1,7 +1,7 @@
 import React from "react";
 import { autobind } from "core-decorators";
 import { StyleSheet, View, Text } from "react-native";
-import axios from "axios";
+import api from "utils/api";
 
 const sneakyLog = meta => data => {
   console.log(meta, JSON.stringify(data, null, 2));
@@ -63,8 +63,8 @@ class Home extends React.Component {
       users: []
     };
 
-    axios
-      .post("http://192.168.1.5:5000/graphql", {
+    api
+      .post("/graphql", {
         query: sneakyLog("QUERY")(allUserQuery)
       })
       .then(response => {
