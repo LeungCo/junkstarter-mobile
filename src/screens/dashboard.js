@@ -75,17 +75,24 @@ class Home extends React.Component {
         });
       })
       .catch(sneakyLog("NETWORK ERROR"));
+
+    // TODO: Use this for the list of available invites
+    // {
+    //   users.map(user => (
+    //     <Text> {JSON.stringify(user, null, 2)} </Text>
+    //   ))
+    // }
   }
 
   render() {
-    const { users, isLoading } = this.state;
+    const { isLoading } = this.state;
     return isLoading ? (
-      <Text> Loading... </Text>
+      <View style={styles.container}>
+        <Text> Loading... </Text>
+      </View>
     ) : (
       <View style={styles.container}>
-        {users.map(user => (
-          <Text> {JSON.stringify(user, null, 2)} </Text>
-        ))}
+        <Text>Loaded</Text>
       </View>
     );
   }

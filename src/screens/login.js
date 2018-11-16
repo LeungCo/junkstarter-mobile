@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { autobind } from "core-decorators";
 import {
   StyleSheet,
@@ -9,6 +9,7 @@ import {
   ActivityIndicator
 } from "react-native";
 import Auth0 from "react-native-auth0";
+import { withNavigate } from "utils/routing";
 const auth0 = new Auth0({
   domain: "junk-starter.au.auth0.com",
   clientId: "iFhQxJKmXMRgfriQMDU9wN8INNYL7RpQ"
@@ -39,8 +40,9 @@ const styles = StyleSheet.create({
   }
 });
 
+@withNavigate
 @autobind
-class AuthScreen extends React.Component {
+class AuthScreen extends Component {
   static navigationOptions = {
     title: "Junk Starter",
     headerStyle: {
@@ -61,9 +63,7 @@ class AuthScreen extends React.Component {
   }
 
   attemptAuth() {
-    const {
-      navigation: { navigate }
-    } = this.props;
+    const { navigate } = this.props;
 
     AsyncStorage.getItem("authCredentials").then(credentials => {
       const parsedCredentials = JSON.parse(credentials);
@@ -90,13 +90,13 @@ class AuthScreen extends React.Component {
                 "authCredentials",
                 JSON.stringify(credentials)
               );
-              navigate("Home");
+              navigate("Dashboard");
               this.resetLoading();
             }
           })
           .catch(error => console.log(error));
       } else if (parsedCredentials && !hasExpired) {
-        navigate("Home");
+        navigate("Dashboard");
         this.resetLoading();
       }
     });
