@@ -90,13 +90,13 @@ class AuthScreen extends Component {
                 "authCredentials",
                 JSON.stringify(credentials)
               );
-              navigate("Dashboard");
+              navigate("Dashboard")();
               this.resetLoading();
             }
           })
           .catch(error => console.log(error));
       } else if (parsedCredentials && !hasExpired) {
-        navigate("Dashboard");
+        navigate("Dashboard")();
         this.resetLoading();
       }
     });
