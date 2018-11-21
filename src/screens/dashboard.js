@@ -1,10 +1,10 @@
 import React from "react";
 import { autobind } from "core-decorators";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, FlatList } from "react-native";
 import api from "utils/api";
 
 const sneakyLog = meta => data => {
-  console.log(meta, JSON.stringify(data, null, 2));
+  console.log(meta, data);
   return data;
 };
 
@@ -13,7 +13,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    padding: 15
+  },
+  listStyles: {
+    padding: 15
   },
   deviceName: {
     backgroundColor: "#32b3ff",
@@ -28,14 +32,9 @@ const styles = StyleSheet.create({
 });
 
 const allUserQuery = `{
-  allUsers {
+  allBoats {
     nodes {
       id
-      userId
-      email
-      password
-      createdOn
-      modifiedOn
     }
   }
 }`;
@@ -60,7 +59,7 @@ class Home extends React.Component {
 
     this.state = {
       isLoading: true,
-      users: []
+      boats: []
     };
 
     api
@@ -71,29 +70,28 @@ class Home extends React.Component {
         sneakyLog("GRAPHQL")(response);
         this.setState({
           isLoading: false,
-          users: response.data.data.allUsers.nodes
+          boats: response.data.data.allBoats.nodes
         });
       })
       .catch(sneakyLog("NETWORK ERROR"));
+  }
 
-    // TODO: Use this for the list of available invites
-    // {
-    //   users.map(user => (
-    //     <Text> {JSON.stringify(user, null, 2)} </Text>
-    //   ))
-    // }
+  renderBoat({ item: boat }) {
+    return <Text>{boat.id}</Text>;
   }
 
   render() {
-    const { isLoading } = this.state;
+    const { isLoading, boats } = this.state;
     return isLoading ? (
       <View style={styles.container}>
         <Text> Loading... </Text>
       </View>
     ) : (
-      <View style={styles.container}>
-        <Text>Loaded</Text>
-      </View>
+      <FlatList
+        contentContainerStyle={styles.listStyles}
+        data={boats}
+        renderItem={this.renderBoat}
+      />
     );
   }
 }
