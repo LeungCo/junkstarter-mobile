@@ -1,24 +1,19 @@
 import React, { Component } from "react";
 import { autobind } from "core-decorators";
-import { StyleSheet, View, Text, TouchableNativeFeedback } from "react-native";
+import { StyleSheet, View } from "react-native";
+import Button, { TextButton } from "components/button";
+import RotatingImages from "components/rotating-images";
+import { Header } from "components/text";
+import Box from "components/box";
+import { withNavigate } from "utils/routing";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "center",
-    paddingTop: 25
-  },
-  deviceName: {
-    backgroundColor: "#32b3ff",
-    padding: 5,
-    margin: 10
-  },
-  deviceService: {
-    backgroundColor: "#00FF00",
-    padding: 5,
-    margin: 10
+    padding: 15
   },
   buttonWrapper: {
     backgroundColor: "hsla(195, 100%, 44%, 1)",
@@ -36,58 +31,42 @@ const styles = StyleSheet.create({
   }
 });
 
+@withNavigate
 @autobind
 class Welcome extends Component {
   static navigationOptions = () => {
     return {
-      title: "Welcome to Junk Starter",
-      headerStyle: {
-        backgroundColor: "#424242"
-      },
-      headerTintColor: "#FFF",
-      headerTitleStyle: {
-        fontWeight: "bold"
-      }
+      header: null
     };
   };
 
   handleSignupNavigation() {
-    const {
-      navigation: { navigate }
-    } = this.props;
+    const { navigate } = this.props;
 
     // TODO: Figure out if we need to go to a new sign up screen?
     // Maybe we can automatically trigger sign up flow from Auth0
-    navigate("DatePicker");
+    navigate("DatePicker")();
   }
 
   handleLoginNavigation() {
-    const {
-      navigation: { navigate }
-    } = this.props;
-
-    navigate("Login");
+    const { navigate } = this.props;
+    navigate("Login")();
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <TouchableNativeFeedback
-          onPress={this.handleSignupNavigation}
-          background={TouchableNativeFeedback.SelectableBackground()}
-        >
-          <View style={styles.buttonWrapper}>
-            <Text style={styles.buttonLabel}> SIGN UP </Text>
-          </View>
-        </TouchableNativeFeedback>
-        <TouchableNativeFeedback
-          onPress={this.handleLoginNavigation}
-          background={TouchableNativeFeedback.SelectableBackground()}
-        >
-          <View style={styles.buttonWrapper}>
-            <Text style={styles.buttonLabel}> LOGIN </Text>
-          </View>
-        </TouchableNativeFeedback>
+        <Header>Junk Trips</Header>
+        <RotatingImages />
+        <Box alignItems={"center"}>
+          <Button onPress={this.handleSignupNavigation}>
+            {" "}
+            BEGIN YOUR JOURNEY{" "}
+          </Button>
+          <TextButton onPress={this.handleLoginNavigation}>
+            Already have an account?
+          </TextButton>
+        </Box>
       </View>
     );
   }
