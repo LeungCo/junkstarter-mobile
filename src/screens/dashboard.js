@@ -1,12 +1,11 @@
 import React from "react";
 import { autobind } from "core-decorators";
 import { StyleSheet, View, Text, FlatList } from "react-native";
+import { Header } from "components/text";
+import Box from "components/box";
 import api from "utils/api";
-
-const sneakyLog = meta => data => {
-  console.log(meta, data);
-  return data;
-};
+import { TextButton } from "components/button";
+import { PADDING } from "../theme";
 
 const styles = StyleSheet.create({
   container: {
@@ -28,6 +27,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#00FF00",
     padding: 5,
     margin: 10
+  },
+  headerWrapper: {
+    borderBottomWidth: 1,
+    borderBottomColor: "darkgrey",
+    backgroundColor: "lightgrey"
   }
 });
 
@@ -43,14 +47,7 @@ const allUserQuery = `{
 class Home extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: "Dashboard",
-      headerStyle: {
-        backgroundColor: "#424242"
-      },
-      headerTintColor: "#FFF",
-      headerTitleStyle: {
-        fontWeight: "bold"
-      }
+      header: null
     };
   };
 
@@ -64,16 +61,15 @@ class Home extends React.Component {
 
     api
       .post("/graphql", {
-        query: sneakyLog("QUERY")(allUserQuery)
+        query: allUserQuery
       })
       .then(response => {
-        sneakyLog("GRAPHQL")(response);
         this.setState({
           isLoading: false,
           boats: response.data.data.allBoats.nodes
         });
       })
-      .catch(sneakyLog("NETWORK ERROR"));
+      .catch(console.error);
   }
 
   renderBoat({ item: boat }) {
@@ -82,16 +78,29 @@ class Home extends React.Component {
 
   render() {
     const { isLoading, boats } = this.state;
-    return isLoading ? (
-      <View style={styles.container}>
-        <Text> Loading... </Text>
-      </View>
-    ) : (
-      <FlatList
-        contentContainerStyle={styles.listStyles}
-        data={boats}
-        renderItem={this.renderBoat}
-      />
+
+    return (
+      <Box backgroundColor={"white"}>
+        <View style={styles.headerWrapper}>
+          <Box padding={PADDING.L}>
+            <Box alignItems={"flex-end"}>
+              <TextButton onPress={console.log}>Profile</TextButton>
+            </Box>
+            <Header extraLarge>Junk Trips</Header>
+          </Box>
+        </View>
+        {isLoading ? (
+          <View style={styles.container}>
+            <Text> Loading... </Text>
+          </View>
+        ) : (
+          <FlatList
+            contentContainerStyle={styles.listStyles}
+            data={boats}
+            renderItem={this.renderBoat}
+          />
+        )}
+      </Box>
     );
   }
 }

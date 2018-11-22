@@ -2,12 +2,23 @@ import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import { autobind } from "core-decorators";
 
-const styles = ({ justifyContent, alignItems }) =>
+const styles = ({
+  backgroundColor,
+  flex,
+  justifyContent,
+  alignItems,
+  mt,
+  padding
+}) =>
   StyleSheet.create({
     container: {
       width: "100%",
+      flex: flex ? flex : justifyContent ? 1 : 0,
       alignItems,
-      justifyContent
+      justifyContent,
+      marginTop: mt || null,
+      padding,
+      backgroundColor
     }
   });
 

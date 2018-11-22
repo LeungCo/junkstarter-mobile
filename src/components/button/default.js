@@ -1,27 +1,34 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, TouchableNativeFeedback } from "react-native";
 import { autobind } from "core-decorators";
-import { PADDING, FONT } from "theme";
+import { PADDING, FONT, COLORS } from "theme";
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "hsla(195, 100%, 44%, 1)",
-    borderRadius: 8,
-    paddingLeft: 40,
-    paddingRight: 40,
-    paddingTop: PADDING.M,
-    paddingBottom: PADDING.M
-  },
-  label: {
-    color: "#FFFFFF",
-    margin: 0,
-    fontWeight: FONT.WEIGHT.SEMI_BOLD,
-    fontSize: FONT.SIZE.L
-  }
-});
+const styles = ({ width }) =>
+  StyleSheet.create({
+    container: {
+      width,
+      backgroundColor: COLORS.BLUE,
+      borderRadius: 8,
+      paddingLeft: 40,
+      paddingRight: 40,
+      paddingTop: PADDING.M,
+      paddingBottom: PADDING.M,
+      alignItems: "center"
+    },
+    label: {
+      color: "#FFFFFF",
+      margin: 0,
+      fontWeight: FONT.WEIGHT.SEMI_BOLD,
+      fontSize: FONT.SIZE.L
+    }
+  });
 
 @autobind
 class Default extends Component {
+  constructor(props) {
+    super(props);
+    this.styles = styles(props);
+  }
   render() {
     const { onPress, children, ...props } = this.props;
     return (
@@ -29,8 +36,8 @@ class Default extends Component {
         onPress={onPress}
         background={TouchableNativeFeedback.SelectableBackground()}
       >
-        <View style={styles.container} {...props}>
-          <Text style={styles.label}>{children}</Text>
+        <View style={this.styles.container}>
+          <Text style={this.styles.label}>{children}</Text>
         </View>
       </TouchableNativeFeedback>
     );

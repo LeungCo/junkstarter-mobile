@@ -45,7 +45,8 @@ class Welcome extends Component {
 
     // TODO: Figure out if we need to go to a new sign up screen?
     // Maybe we can automatically trigger sign up flow from Auth0
-    navigate("DatePicker")();
+    // navigate("DatePicker")();
+    navigate("UserType")();
   }
 
   handleLoginNavigation() {
